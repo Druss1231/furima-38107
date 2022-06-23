@@ -16,53 +16,52 @@
 ### Association
 - has_many : histories
 - has_many : items
-- has_many : destinations
 
 
 ### itemsテーブル
 
-| Column      | Type      | Options                        |
-| ----------- | --------- | ------------------------------ |
-| title       | strings   | null: false                    |
-| price       | strings   | null: false                    |
-| fee         | strings   | null: false                    |
-| description | text      | null: false                    |
-| category    | strings   | null: false                    |
-| condition   | strings   | null: false                    |
-| from        | strings   | null: false                    |
-| ship_date   | strings   | null: false                    |
-| user_id     | reference | null: false, foreign_key: true |
+| Column       | Type       | Options                        |
+| ------------ | ---------- | ------------------------------ |
+| title        | strings    | null: false                    |
+| price        | integer    | null: false                    |
+| fee_id       | integer    | null: false                    |
+| description  | text       | null: false                    |
+| category_id  | integer    | null: false                    |
+| condition_id | integer    | null: false                    |
+| from_id      | integer    | null: false                    |
+| ship_date_id | integer    | null: false                    |
+| user         | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to : users
 - has_one : history
-- has_one : destination
 
 
-### historyテーブル
+### historiesテーブル
 
-| Column    | Type      | Options                        |
-| --------- | --------- | ------------------------------ |
-| item_id   | reference | null: false, foreign_key: true |
-| user_id   | reference | null: false, foreign_key: true |
+| Column    | Type       | Options                        |
+| --------- | ---------- | ------------------------------ |
+| item      | references | null: false, foreign_key: true |
+| user      | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to : item
 - belongs_to : user
 
 
-##destinationテーブル
-| Column       | Type      | Options                        |
-| ------------ | --------- | ------------------------------ |
-| post_code    | strings   | null: false                    |
-| prefecture   | strings   | null: false                    |
-| city         | strings   | null: false                    |
-| address_line | strings   | null: false                    |
-| building     | strings   | null: false                    |
-| phone        | strings   | null: false                    |
-| user_id      | reference | null: false, foreign_key: true |
+### destinationsテーブル
+| Column       | Type       | Options                        |
+| ------------ | ---------- | ------------------------------ |
+| post_code    | strings    | null: false                    |
+| prefecture_id| integer    | null: false                    |
+| city         | strings    | null: false                    |
+| address_line | strings    | null: false                    |
+| building     | strings    |                                |
+| phone        | strings    | null: false                    |
+| user_id      | references | null: false, foreign_key: true |
+| item_id      | references | null: false, foreign_key: true |
 
 ### Association
 - has_one : item
-- belongs_to : user
+- belongs_to : history
 
