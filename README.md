@@ -4,13 +4,13 @@
 
 | Column              | Type    | Options                   |
 | ------------------- | ------- | ------------------------- |
-| email               | strings | null: false, unique: true |
-| encrypted_password  | strings | null: false               |
-| nickname            | strings | null: false               |
-| firstname           | strings | null: false               |
-| lastname            | strings | null: false               |
-| firstname_kana      | strings | null: false               |
-| lastname_kana       | strings | null: false               |
+| email               | string | null: false, unique: true |
+| encrypted_password  | string | null: false               |
+| nickname            | string | null: false               |
+| firstname           | string | null: false               |
+| lastname            | string | null: false               |
+| firstname_kana      | string | null: false               |
+| lastname_kana       | string | null: false               |
 | birthday            | date    | null: false               |
 
 ### Association
@@ -22,7 +22,7 @@
 
 | Column       | Type       | Options                        |
 | ------------ | ---------- | ------------------------------ |
-| title        | strings    | null: false                    |
+| title        | string    | null: false                    |
 | price        | integer    | null: false                    |
 | fee_id       | integer    | null: false                    |
 | description  | text       | null: false                    |
@@ -33,7 +33,7 @@
 | user         | references | null: false, foreign_key: true |
 
 ### Association
-- belongs_to : users
+- belongs_to : user
 - has_one : history
 
 
@@ -47,21 +47,20 @@
 ### Association
 - belongs_to : item
 - belongs_to : user
+- has_one : destinations
 
 
 ### destinationsテーブル
 | Column       | Type       | Options                        |
 | ------------ | ---------- | ------------------------------ |
-| post_code    | strings    | null: false                    |
+| post_code    | string    | null: false                    |
 | prefecture_id| integer    | null: false                    |
-| city         | strings    | null: false                    |
-| address_line | strings    | null: false                    |
-| building     | strings    |                                |
-| phone        | strings    | null: false                    |
-| user_id      | references | null: false, foreign_key: true |
-| item_id      | references | null: false, foreign_key: true |
+| city         | string    | null: false                    |
+| address_line | string    | null: false                    |
+| building     | string    |                                |
+| phone        | string    | null: false                    |
+| history      | references | null: false, foreign_key: true |
 
 ### Association
-- has_one : item
 - belongs_to : history
 
