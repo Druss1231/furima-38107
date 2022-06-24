@@ -7,6 +7,7 @@
 | email               | string | null: false, unique: true |
 | encrypted_password  | string | null: false               |
 | nickname            | string | null: false               |
+| firstname           | string | null: false               |
 | lastname            | string | null: false               |
 | firstname_kana      | string | null: false               |
 | lastname_kana       | string | null: false               |
