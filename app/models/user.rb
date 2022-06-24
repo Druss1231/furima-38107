@@ -8,8 +8,8 @@ class User < ApplicationRecord
 
   validates :password, format: { with: VALID_PASSWORD_REGEX}
   validates :nickname, presence: true       
-  validates :firstname, presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]/}               
-  validates :lastname, presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]/  }           
+  validates :firstname, presence: true, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/}               
+  validates :lastname, presence: true, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/ }           
   validates :firstname_kana, presence: true, format: { with: /[\p{katakana} ー－&&[^ -~｡-ﾟ]]+/}
   validates :lastname_kana, presence: true, format: { with: /[\p{katakana} ー－&&[^ -~｡-ﾟ]]+/}               
   validates :birthday, presence: true           
