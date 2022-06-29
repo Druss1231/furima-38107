@@ -29,7 +29,7 @@
 | category_id  | integer    | null: false                    |
 | condition_id | integer    | null: false                    |
 | from_id      | integer    | null: false                    |
-| ship_date_id | integer    | null: false                    |
+| shipdate_id | integer    | null: false                    |
 | user         | references | null: false, foreign_key: true |
 
 ### Association

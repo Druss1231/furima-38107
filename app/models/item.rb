@@ -6,7 +6,7 @@ class Item < ApplicationRecord
   validates :category_id,  numericality: { other_than: 1, message: "can't be blank" }
   validates :condition_id, numericality: { other_than: 1, message: "can't be blank" }
   validates :from_id,      numericality: { other_than: 1, message: "can't be blank" }
-  validates :ship_date_id, numericality: { other_than: 1, message: "can't be blank" }
+  validates :shipdate_id, numericality: { other_than: 1, message: "can't be blank" }
   validates :image, presence: true
   has_one_attached :image
 
@@ -18,5 +18,5 @@ class Item < ApplicationRecord
   belongs_to :condition
   belongs_to :fee
   belongs_to :from
-  belongs_to :ship
+  belongs_to :shipdate
 end
