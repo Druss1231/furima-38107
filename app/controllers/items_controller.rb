@@ -17,7 +17,6 @@ class ItemsController < ApplicationController
     else
       render :new
     end
-    destination.create(destination_params)
   end
 
   def show
@@ -53,9 +52,5 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
-  end
-
-  def destination_params
-    params.permit(:post_code, :prefecture, :city, :address_line, :building, :phone).merge(item_id: @item.id)
   end
 end
