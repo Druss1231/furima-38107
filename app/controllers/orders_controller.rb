@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
 
   def index
     @item = Item.find(params[:item_id])
+    redirect_to root_path unless user_signed_in? && current_user.id == @item.user_id
     @order_destination = OrderDestination.new
 
   end
@@ -28,7 +29,7 @@ class OrdersController < ApplicationController
   end
 
    def pay_item
-     Payjp.api_key = "sk_test_335767f24877c75b10037f7e"  # 自身のPAY.JPテスト秘密鍵を記述しましょう
+     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]  # 自身のPAY.JPテスト秘密鍵を記述しましょう
      Payjp::Charge.create(
        amount: @item.price,  # 商品の値段
        card: order_params[:token],    # カードトークン
