@@ -3,13 +3,13 @@ class OrderDestination
   attr_accessor :post_code, :from_id, :city, :address_line, :building, :phone, :user_id, :item_id, :token
 
   with_options presence: true do
-    validates :token, presence: true
+    validates :token
     validates :user_id
     validates :post_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)", allow_blank: true}
     validates :from_id, numericality: {other_than: 1, message: "can't be blank"}
-    validates :city, presence: true
-    validates :address_line, presence: true
-    validates :phone, presence: true, format: {with: /\A\d{10}$|^\d{11}\z/, allow_blank: true}
+    validates :city
+    validates :address_line
+    validates :phone, format: {with: /\A\d{10}$|^\d{11}\z/, allow_blank: true}
     validates :item_id
   end
 
