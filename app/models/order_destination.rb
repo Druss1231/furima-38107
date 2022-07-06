@@ -10,6 +10,7 @@ class OrderDestination
     validates :city, presence: true
     validates :address_line, presence: true
     validates :phone, presence: true, format: {with: /\A\d{10}$|^\d{11}\z/, allow_blank: true}
+    validates :item_id
   end
 
   def save
