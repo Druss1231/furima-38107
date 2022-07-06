@@ -3,8 +3,9 @@ require 'rails_helper'
 RSpec.describe OrderDestination, type: :model do
   describe '購入情報の保存' do
     before do
-      user = FactoryBot.create(:user)
-      @order_destination = FactoryBot.build(:order_destination, user_id: user.id)
+      item = FactoryBot.create(:item)
+      @order_destination = FactoryBot.build(:order_destination, user_id: item.user_id, item_id: item.id)
+      sleep 0.1
     end
 
     context '内容に問題ない場合' do

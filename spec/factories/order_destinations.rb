@@ -7,7 +7,5 @@ FactoryBot.define do
     address_line {Faker::Address.street_address}
     phone        {"09000000000"}
     building     {"マンション101"}
-    item_id      {"1"}
-
   end
 end
