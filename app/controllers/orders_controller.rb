@@ -4,7 +4,7 @@ class OrdersController < ApplicationController
   before_action :set_item, only: [:index, :create]
 
   def index
-    redirect_to root_path if @item.order.present? || (user_signed_in? && current_user.id == @item.user_id) || !user_signed_in?
+    redirect_to root_path if @item.order.present? || current_user.id == @item.user_id || !user_signed_in?
     @order_destination = OrderDestination.new
   end
 
