@@ -58,10 +58,25 @@ RSpec.describe OrderDestination, type: :model do
         @order_destination.valid?
         expect(@order_destination.errors.full_messages).to include("Phone is invalid")
       end
+      it 'phoneが9桁以上では保存できないこと' do
+        @order_destination.phone = "123456789"
+        @order_destination.valid?
+        expect(@order_destination.errors.full_messages).to include("Phone is invalid")
+      end
+      it '電話番号に半角数字以外が含まれている場合は購入できないこと' do
+        @order_destination.phone = "12345678９"
+        @order_destination.valid?
+        expect(@order_destination.errors.full_messages).to include("Phone is invalid")
+      end
       it 'userが紐付いていないと保存できないこと' do
         @order_destination.user_id = nil
         @order_destination.valid?
         expect(@order_destination.errors.full_messages).to include("User can't be blank")
+      end
+      it 'itemが紐付いていないと保存できないこと' do
+        @order_destination.item_id = nil
+        @order_destination.valid?
+        expect(@order_destination.errors.full_messages).to include("Item can't be blank")
       end
     end
   end
