@@ -14,7 +14,7 @@
 | birthday            | date   | null: false               |
 
 ### Association
-- has_many : histories
+- has_many : orders
 - has_many : items
 
 
@@ -29,15 +29,15 @@
 | category_id  | integer    | null: false                    |
 | condition_id | integer    | null: false                    |
 | from_id      | integer    | null: false                    |
-| shipdate_id | integer    | null: false                    |
+| shipdate_id  | integer    | null: false                    |
 | user         | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to : user
-- has_one : history
+- has_one : order
 
 
-### historiesテーブル
+### ordersテーブル
 
 | Column    | Type       | Options                        |
 | --------- | ---------- | ------------------------------ |
@@ -59,8 +59,7 @@
 | address_line | string     | null: false                    |
 | building     | string     |                                |
 | phone        | string     | null: false                    |
-| history      | references | null: false, foreign_key: true |
+| order        | references | null: false, foreign_key: true |
 
 ### Association
-- belongs_to : history
-
+- belongs_to : order
