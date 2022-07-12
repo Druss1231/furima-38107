@@ -57,6 +57,10 @@ group :development do
   gem 'rubocop', require: false
 end
 
+group :production do
+  gem 'unicorn', '5.4.1'
+end
+
 gem 'devise'
 gem 'rspec-rails', '~> 4.0.0'
 gem 'factory_bot_rails'
