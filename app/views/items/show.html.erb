@@ -96,7 +96,7 @@
 <%# /コメント %>
 
   <div class="comment-box">
-  <% if user_signed_in? %>
+  <% if user_signed_in? && !@item.order.present? %>
     <%= form_with model: [@item, @comment], id: "comment-form" do |f| %>
       <%= f.text_area :text , class: "comment-text"%>
       <p class="comment-warn">
